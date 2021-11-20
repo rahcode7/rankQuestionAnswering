@@ -15,11 +15,10 @@ k=5
 db_class = DocDB()
 PROCESS_DB = db_class
 
-total=0
 # def fetch_text(doc_id):
 #     global PROCESS_DB
 #     return 
-
+total=0
 
 ## 1. Read sample questions from SQUAD
 question = []
@@ -29,8 +28,8 @@ i = 0
 with open('/Users/rahul/Desktop/ANLP/ProjectANLP/src/DrQA-main/scripts-2/data/datasets/SQuAD-v1.1-train.txt') as f:
     for line in f:
         i+=1
-        if i>3:
-            break
+        # if i>3:
+        #     break
         q = json.loads(line)['question']
         a = json.loads(line)['answer']
         question.append(q)
@@ -43,7 +42,7 @@ print(len(question))
 ## 2. Get top k documents from wiki for each question query
 for j,query in enumerate(question):
     print(j)
-    #print(query)
+    print(query)
     doc_names, doc_scores = ranker.closest_docs(query, k)
     #filename = '../results/query_topdocs.csv'
    
@@ -90,8 +89,10 @@ for j,query in enumerate(question):
     with open('../results/query_ids.txt', 'a') as f:
         f.write(str(j) + " " + str(query) + "\n")
 
-    with open('../results/stats.txt', 'a') as f:
-        f.write("Candidates found : {0}".format(total))
+with open('../results/stats.txt', 'a') as f:
+    f.write("Num of Queries : {0}".format(j))
+    f.write("Candidates found : {0}".format(total))
+    
 
 
 
