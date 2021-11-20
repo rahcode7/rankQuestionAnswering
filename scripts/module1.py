@@ -10,11 +10,12 @@ import csv
 #ranker = retriever.get_class('tfidf')#(tfidf_path='./data/wikipedia/docs-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz)
 ranker = TfidfDocRanker()
 print(ranker)
-k=10
+k=5
 
 db_class = DocDB()
 PROCESS_DB = db_class
 
+total=0
 # def fetch_text(doc_id):
 #     global PROCESS_DB
 #     return 
@@ -28,7 +29,7 @@ i = 0
 with open('/Users/rahul/Desktop/ANLP/ProjectANLP/src/DrQA-main/scripts-2/data/datasets/SQuAD-v1.1-train.txt') as f:
     for line in f:
         i+=1
-        if i>100:
+        if i>3:
             break
         q = json.loads(line)['question']
         a = json.loads(line)['answer']
@@ -42,17 +43,17 @@ print(len(question))
 ## 2. Get top k documents from wiki for each question query
 for j,query in enumerate(question):
     print(j)
-    print(query)
+    #print(query)
     doc_names, doc_scores = ranker.closest_docs(query, k)
     #filename = '../results/query_topdocs.csv'
    
-    table = prettytable.PrettyTable(
-        ['Rank', 'Doc Id', 'Doc Score']
-    )
+    # table = prettytable.PrettyTable(
+    #     ['Rank', 'Doc Id', 'Doc Score']
+    # )
 
-    for i in range(len(doc_names)):
-                 # writing the data rows 
-        table.add_row([i + 1, doc_names[i], '%.5g' % doc_scores[i]])
+    # for i in range(len(doc_names)):
+    #              # writing the data rows 
+    #     table.add_row([i + 1, doc_names[i], '%.5g' % doc_scores[i]])
 
     #print(table)
     # with open(filename, 'w') as csvfile: 
@@ -78,7 +79,7 @@ for j,query in enumerate(question):
         for split in splits:
             candidates_para.append(split)
 
-    print(len(candidates_para))
+    total+=len(candidates_para)
     query_para_pair = map(lambda e: (j,e), candidates_para)
     #query_ids = map((j,query))
 
@@ -89,6 +90,8 @@ for j,query in enumerate(question):
     with open('../results/query_ids.txt', 'a') as f:
         f.write(str(j) + " " + str(query) + "\n")
 
+    with open('../results/stats.txt', 'a') as f:
+        f.write("Candidates found : {0}".format(total))
 
 
 
