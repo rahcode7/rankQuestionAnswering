@@ -35,30 +35,26 @@ with open('/Users/rahul/Desktop/ANLP/ProjectANLP/src/DrQA-main/scripts-2/data/da
         question.append(q)
         answer.append(a)
 
-print(question[0:10])
-print(answer[0:10])
+#print(question[0:10])
+#print(answer[0:10])
 print(len(question))
 
 ## 2. Get top k documents from wiki for each question query
-
-
-
-
-for j,query in enumerate(question[0:100]):
+for j,query in enumerate(question):
     print(j)
-    #print(query)
+    print(query)
     doc_names, doc_scores = ranker.closest_docs(query, k)
     #filename = '../results/query_topdocs.csv'
    
     table = prettytable.PrettyTable(
-        ['Query','Rank', 'Doc Id', 'Doc Score']
+        ['Rank', 'Doc Id', 'Doc Score']
     )
 
     for i in range(len(doc_names)):
                  # writing the data rows 
-        table.add_row([query,i + 1, doc_names[i], '%.5g' % doc_scores[i]])
+        table.add_row([i + 1, doc_names[i], '%.5g' % doc_scores[i]])
 
-    print(table)
+    #print(table)
     # with open(filename, 'w') as csvfile: 
     #         # creating a csv writer object 
     #         csvwriter = csv.writer(csvfile) 
@@ -83,10 +79,15 @@ for j,query in enumerate(question[0:100]):
             candidates_para.append(split)
 
     print(len(candidates_para))
-    query_para_pair = map(lambda e: (query,e), candidates_para)
+    query_para_pair = map(lambda e: (j,e), candidates_para)
+    #query_ids = map((j,query))
 
-    with open('../results/query_para_pair.txt', 'w') as fp:
+    # Save query and paragraph pairs which will be input to the second module
+    with open('../results/query_para_pair.txt', 'a') as fp:
         fp.write('\n'.join('%s %s' % x for x in query_para_pair))
+
+    with open('../results/query_ids.txt', 'a') as f:
+        f.write(str(j) + " " + str(query) + "\n")
 
 
 
