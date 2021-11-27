@@ -1,0 +1,3 @@
+Num of Queries : 9998
+ Candidates found : 1928358
+ Time taken  : 568.0506277084351
