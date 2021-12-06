@@ -9,7 +9,7 @@ BERT_BASE_DIR=/Users/rahul/Desktop/ANLP/ProjectANLP/models/uncased_L-12_H-768_A-
 BERT_FINE_TUNED=/Users/rahul/Desktop/ANLP/ProjectANLP/models/uncased_L-12_H-768_A-12/
 
 On local machine
-```python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/vocab.txt \
+``` python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/vocab.txt \
                    --bert_config_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/bert_config.json \
                    --output_dir=/tmp \
                    --do_predict=True \
