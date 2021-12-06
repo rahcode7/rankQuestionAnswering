@@ -1,4 +1,5 @@
-Implementation of the paper RankQA : https://arxiv.org/pdf/1906.03008.pdf
+Implementation of the paper **RankQA**  
+Paper url - https://arxiv.org/pdf/1906.03008.pdf
 
 # Module 1 - Information Retrieval
 python module1-squad.py
