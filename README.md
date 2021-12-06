@@ -1,4 +1,3 @@
-# rankQuestionAnswering
 Implementation of the paper RankQA : https://arxiv.org/pdf/1906.03008.pdf
 
 # Module 1 - Information Retrieval
