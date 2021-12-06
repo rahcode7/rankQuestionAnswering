@@ -5,11 +5,11 @@ Implementation of the paper RankQA : https://arxiv.org/pdf/1906.03008.pdf
 python module1-squad.py
 
 # Module 2 - Machine Comprehension
-BERT_BASE_DIR=/Users/rahul/Desktop/ANLP/ProjectANLP/models/uncased_L-12_H-768_A-12/
+``` BERT_BASE_DIR=/Users/rahul/Desktop/ANLP/ProjectANLP/models/uncased_L-12_H-768_A-12/
 BERT_FINE_TUNED=/Users/rahul/Desktop/ANLP/ProjectANLP/models/uncased_L-12_H-768_A-12/
 
-On local machine
-``` python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/vocab.txt \
+# On local machine
+python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/vocab.txt \
                    --bert_config_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/bert_config.json \
                    --output_dir=/tmp \
                    --do_predict=True \
