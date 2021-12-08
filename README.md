@@ -45,6 +45,7 @@ BERT_FINE_TUNED=/Users/rahul/Desktop/ANLP/ProjectANLP/models/uncased_L-12_H-768_
 python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/vocab.txt \
                    --bert_config_file=/content/drive/My Drive/IIIT/ADV_NLP/Project/bertqa/models/uncased/bert_config.json \
                    --output_dir=/tmp \
+                   --init_checkpoint=models/bert-squad-pretrained/model.ckpt-8144 \
                    --do_predict=True \
                    --predict_file=data/datasets/SQuAD-v1.1-train.txt \
                    --retriever_model=data/wikipedia/docs-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz  \
@@ -52,22 +53,21 @@ python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP
                    --out_name=output/squad_train 
 ```
 
+
 ##### On colab 
 
 ```
-!python generate_candidates.py --vocab_file=models/uncased/vocab.txt --bert_config_file=models/uncased/bert_config.json --output_dir=/tmp --do_predict=True --predict_file=data/datasets/SQuAD-v1.1-train.txt --retriever_model=data/wikipedia/docs-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz --doc_db=data/wikipedia/docs.db --out_name=output/squad_train
+!python generate_candidates.py --vocab_file=models/uncased/vocab.txt --bert_config_file=models/uncased/bert_config.json --output_dir=/tmp --init_checkpoint=models/bert-squad-pretrained/model.ckpt-8144 --do_predict=True --predict_file=data/datasets/SQUAD-v1.1-train-sample-500.txt --retriever_model=data/wikipedia/docs-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz --doc_db=data/wikipedia/docs.db --out_name=output
+
 ```
 
-#### Outputs generated 
-The outputs gets generated in the folder in differen batches. For example :    
-    ```bertqa/out/output-feat-batch-0.txt ``` 
+# Module 3 - Reranking module
 
 
-##### Sample output
-```
-[{"text": "pio or sister maria pierina de micheli these have involved visions of jesus", "span_score": 2.2091721296310425, "start_logit": 1.0981687307357788, "end_logit": 1.1110033988952637, "doc_score": 324.03023353020836, "doc_pos": 3, "in_doc_pos": 0, "paragraph_score": 0.06557377049180328, "context_len": 67, "span_len": 13, "first_occ": 1, "num_occ": 1, "avg_span_score": 2.2091721296310425, "max_span_score": 2.2091721296310425, "min_span_score": 2.2091721296310425, "avg_doc_score": 324.03023353020836, "max_doc_score": 324.03023353020836, "min_doc_score": 324.03023353020836, "avg_doc_pos": 3, "max_doc_pos": 3, "min_doc_pos": 3, "avg_start_logit": 1.0981687307357788, "max_start_logit": 1.0981687307357788, "min_start_logit": 1.0981687307357788, "avg_end_logit": 1.1110033988952637, "max_end_logit": 1.1110033988952637, "min_end_logit": 1.1110033988952637, "avg_paragraph_score": 0.06557377049180328, "max_paragraph_score": 0.06557377049180328, "min_paragraph_score": 0.06557377049180328, "avg_in_doc_pos": 0, "max_in_doc_pos": 0, "min_in_doc_pos": 0, "target": 0, "question": "To whom did the Virgin Mary allegedly appear in 1858 in Lourdes France?", "question_len": 13}
-```
+## Download features from module 2 for SQUAD dataset here in features folder
+https://drive.google.com/drive/folders/1De44vqV2akIsIKa4zpKfzscSLrBP3l8P?usp=sharing
 
 
-
-## Module 3 - Reranking module
+## Run reranking model 
+%cd "/content/drive/My Drive/IIIT/ADV_NLP/Project/rankqa/"
+!python run.py
