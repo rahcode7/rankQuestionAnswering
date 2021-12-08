@@ -61,7 +61,7 @@ python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP
 
 ```
 
-# Module 3 - Reranking module
+## Module 3 - Reranking module
 
 
 #### Download features from module 2 for SQUAD dataset here in features folder
