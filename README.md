@@ -69,5 +69,7 @@ https://drive.google.com/drive/folders/1De44vqV2akIsIKa4zpKfzscSLrBP3l8P?usp=sha
 
 
 #### Run reranking model 
-%cd "/content/drive/My Drive/IIIT/ADV_NLP/Project/rankqa/"
+```
+%cd "/content/drive/My Drive/IIIT/ADV_NLP/Project/rankqa/"      
 !python run.py
+```
