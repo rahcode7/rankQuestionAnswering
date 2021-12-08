@@ -59,7 +59,7 @@ python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP
 ```
 
 #### Outputs generated 
-The outputs gets generated in the folder in differen batches    
+The outputs gets generated in the folder in differen batches. For example :    
     ```bertqa/out/output-feat-batch-0.txt ``` 
 
 
