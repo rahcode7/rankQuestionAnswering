@@ -1,6 +1,6 @@
 # rankQuestionAnswering
-Implementation of the paper RankQA
-Paper url - https://arxiv.org/pdf/1906.03008.pdf
+Implementation of the paper RankQA  
+- Paper url - https://arxiv.org/pdf/1906.03008.pdf
 
 ## Module 1 - Information Retrieval
 For a given query, the information retrieval module retrieves the top-n (here: n = 10) matching documents from the content repository and then splits these articles into paragraphs.
