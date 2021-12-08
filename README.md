@@ -64,10 +64,10 @@ python generate_candidates.py  --vocab_file=/content/drive/My Drive/IIIT/ADV_NLP
 # Module 3 - Reranking module
 
 
-## Download features from module 2 for SQUAD dataset here in features folder
+#### Download features from module 2 for SQUAD dataset here in features folder
 https://drive.google.com/drive/folders/1De44vqV2akIsIKa4zpKfzscSLrBP3l8P?usp=sharing
 
 
-## Run reranking model 
+#### Run reranking model 
 %cd "/content/drive/My Drive/IIIT/ADV_NLP/Project/rankqa/"
 !python run.py
