@@ -15,7 +15,6 @@ python module1-squad.py
 python module1-wiki.py
 ```
 
-
 ## Module 2 - Machine Comprehension
 The machine comprehension module extracts and scores one candidate answer for every paragraph of all top-k documents. 
 Hyperparamer **k** : I used k=20 because of memory constraints. The author used k=40.
